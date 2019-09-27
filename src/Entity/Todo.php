@@ -39,6 +39,11 @@ class Todo
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $deleted = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,5 +114,17 @@ class Todo
     public function setUpdateDates()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
     }
 }
